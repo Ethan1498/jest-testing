@@ -18,7 +18,6 @@ describe("Filter function", () => {
         const input = [
             { id: 1, url: "https://github.com/Ethan1498" },
             { id: 2, url: "https://github.com/Ethan1498?tab=projects" },
-            { id: 3, url: "https://github.com/Ethan1498?tab=repositories" }
         ];
 
         const output = [
@@ -27,5 +26,11 @@ describe("Filter function", () => {
         ];
 
         expect(filterByTerm(input, "github")).toEqual(output);
+    });
+    test("it should throw when searchTerm is empty string", () => {
+        const input = [];
+        expect(() => {
+            filterByTerm(input, "");
+        }).toThrowError(Error("searchTerm cannot be empty"));
     });
 });
