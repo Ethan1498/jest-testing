@@ -1,19 +1,19 @@
 function filterByTerm(inputArr, searchTerm) {
     return inputArr.filter(function(arrayElement) {
-        return arrayElement.name.match(searchTerm);
+      return arrayElement.url.match(searchTerm);
     });
-}
-
-describe("Filter Function", () => {
-    test("it should filter by a search term (name)", () => {
-        const input = [
-            {id: 1, name: "Bob"},
-            {id: 2, name: "John"},
-            {id: 3, name: "Elliot"}
-        ];
-
-        const output = [{ id: 3, name: "Elliot" }];
-
-        expect(filterByTerm(input, "name")).toEqual(output);
+  }
+  
+  describe("Filter function", () => {
+    test("it should filter by a search term (link)", () => {
+      const input = [
+        { id: 1, url: "https://github.com/Ethan1498" },
+        { id: 2, url: "https://github.com/Ethan1498?tab=projects" },
+        { id: 3, url: "https://github.com/Ethan1498?tab=repositories" }
+      ];
+  
+      const output = [{ id: 3, url: "https://github.com/Ethan1498?tab=repositories" }];
+  
+      expect(filterByTerm(input, "repositories")).toEqual(output);
     });
-});
+  });
